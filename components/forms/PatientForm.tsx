@@ -36,19 +36,6 @@ const PatientForm = () => {
         },
     });
 
-    useEffect(() => {
-        const testAppwriteConnection = async () => {
-            try {
-                const userList = await users.list();
-                console.log("Existing users:", userList);
-            } catch (error) {
-                console.error("Appwrite connection failed:", error);
-            }
-        };
-
-        testAppwriteConnection();
-    }, []);
-
     async function onSubmit({ name, email, phone }: z.infer<typeof UserFormValidation>) {
         setIsLoading(true);
 
@@ -65,7 +52,7 @@ const PatientForm = () => {
             } catch (error) {
                 console.error('Error creating user:', error);
                 retries++;
-                setTimeout(() => { }, 1000 * retries); // Wait longer between retries
+                setTimeout(() => { }, 1000 * retries);
             }
         }
 
