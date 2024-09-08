@@ -9,8 +9,6 @@ export default async function NewAppointment({ params: { userId }}: SearchParamP
   const patient = await getPatient(userId);
   return (
     <div className="flex h-screen max-h-screen">
-
-      {/* TODO: OTP verification | passkey modal */}
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
           <Image
